@@ -1,0 +1,87 @@
+body{
+    background-color: bisque;
+    column-count: 2;
+    
+  
+    
+
+}
+h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 30;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 400
+
+}
+
+
+
+.nav-bar{
+    left: 20%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 150px;
+    margin-left: 50px;
+    list-style-type: none;
+    display: block;
+    height: 600px
+
+    
+}
+#form{
+    border: 3px solid white;
+    padding: 10px;
+    width: 450px;
+    height: 750px;
+    Text-align: center;
+   
+
+}
+.image_url{
+    max-width: 20%;
+    max-height: 20%;
+    border: 3px solid white;
+    padding: 10px;
+   
+
+}
+.name {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+input{
+        display: block;
+        height: 50px;
+        width: 60%;
+        border-radius: 3px;
+        padding: 5px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: 300;
+    }
+textarea{
+       display: block;
+        height: 100px;
+        width: 60%;
+        border-radius: 3px;
+        padding: 5px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: 300;
+    }
+    button {
+        margin-top: 5px;
+        width: 40%;
+        padding: 5px;
+        background-color: white;
+        font-weight: 700;
+        border-radius: 5px;
+        cursor: pointer;
+    }
