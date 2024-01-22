@@ -21,15 +21,12 @@ p {
 
 
 
-.nav-bar{
+.grouping{
     left: 20%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-right: 150px;
-    margin-left: 50px;
+    
     list-style-type: none;
     display: block;
-    height: 600px
+    height: 700px
 
     
 }
