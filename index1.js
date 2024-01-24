@@ -4,7 +4,7 @@ fetch('http://localhost:3000/beers/1')
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
-    return response.json(); // Assuming the response is JSON
+    return response.json(); 
   })
   .then((data) => productDisplay(data))
   .catch((err) => console.error(`Fetch problem: ${err.message}`));
@@ -31,27 +31,20 @@ fetch('http://localhost:3000/beers/1')
     document.querySelector(".reviews").appendChild(div)   
   }
 
-
   }
   document.addEventListener('DOMContentLoaded', ()=>{
-    document.querySelector('form').addEventListener('submit', (e)=>{
-           e.preventDefault();
-           addReviews(e.target.review.value);
-       });
-   })
-   function addReviews(review){
-       let h3 = document.createElement("h3");
-       let btn = document.createElement("button");
-       btn.addEventListener("click", handleDelete);
-       btn.textContent = "x";
-       h3.appendChild(btn);
-       h3.textContent = review;
-       document.querySelector(".reviews").appendChild(h3);
-       
-   }
-   function handleDelete(e){
-       e.target.parentNode.remove();
-   }
+ document.querySelector('form').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  addReviews(e.target.review.value);
+});
+})
+function addReviews(review){
+let h3 = document.createElement("h3");
+h3.textContent = review;
+document.querySelector(".reviews").appendChild(h3);
+
+
+}
   var beerData;
 
   fetch("http://localhost:3000/beers")
@@ -70,7 +63,7 @@ fetch('http://localhost:3000/beers/1')
               <a onclick = "navigate('${beerData[j].id}')" href= "#"><h2>${beerData[j].name}</h2></a>
           </div>    
       `;
-    document.querySelector("#beer_nav").append(navList);   
+    document.querySelector(".column1").append(navList);   
   }
       
   
@@ -81,10 +74,30 @@ fetch('http://localhost:3000/beers/1')
    
       let beerInfo = document.createElement("li");
       beerInfo.innerHTML = 
-          `<h3> ${beerData[id-1].name}</h3>
-          <img src = "${beerData[id-1].image_url}" alt = ''>
-          <h3>${beerData[id-1].description}</h3>
+          `<p> ${beerData[id-1].name}</p>
+          <img class= "thumb" height ="150px" width ="50px" src = "${beerData[id-1].image_url}" alt = ''>
+          <h4>${beerData[id-1].description}</h4>
           <h3>${beerData[id-1].reviews}</h3>
        `;
    document.querySelector("#beer_nav").appendChild(beerInfo);
    }
+   function handleReview(e){
+    e.preventDefault()
+    let beersObj ={
+        reviews: target.review.value
+    }
+    postReview(beersObj);
+}
+ function postReview(beersObj){
+  
+    fetch('http://localhost:3000/beers', {
+    method: 'POST', 
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body:JSON.stringigy(beersObj)
+
+    })
+    .then(res => res.json())
+    .then(beers => console.log(beers))
+ }
